@@ -1,0 +1,820 @@
+<sdf version='1.6'>
+  <model name='believer'>
+    <link name='believer/base_link'>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0.001484 0 0.00016 0 -0 0</pose>
+        <mass>3.134</mass>
+        <inertia>
+          <ixx>0.608826</ixx>
+          <ixy>0</ixy>
+          <ixz>0.0278682</ixz>
+          <iyy>0.164531</iyy>
+          <iyz>0</iyz>
+          <izz>0.695796</izz>
+        </inertia>
+      </inertial>
+      <collision name='believer/base_link_collision'>
+        <pose frame=''>-0.2 0 0.15 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1.2 2 0.5</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='believer/base_link_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://believer/meshes/believer_body.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/DarkGrey</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay/>
+      <gravity>1</gravity>
+      <velocity_decay/>
+    </link>
+    <link name='believer/aileron_left'>
+      <pose frame=''>-0.17 0.72 0.02 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>7.51408e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.42242e-05</iyy>
+          <iyz>0</iyz>
+          <izz>8.90833e-05</izz>
+        </inertia>
+      </inertial>
+      <visual name='believer/aileron_left_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://believer/meshes/believer_aileron_left.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Blue</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+    </link>
+    <joint name='believer/aileron_left_joint' type='revolute'>
+      <child>believer/aileron_left</child>
+      <parent>believer/base_link</parent>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <lower>-0.349066</lower>
+          <upper>0.349066</upper>
+          <effort>10</effort>
+          <velocity>20</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='believer/aileron_right'>
+      <pose frame=''>-0.17 -0.72 0.02 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>7.51408e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.42242e-05</iyy>
+          <iyz>0</iyz>
+          <izz>8.90833e-05</izz>
+        </inertia>
+      </inertial>
+      <visual name='believer/aileron_right_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://believer/meshes/believer_aileron_right.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/White</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+    </link>
+    <joint name='believer/aileron_right_joint' type='revolute'>
+      <child>believer/aileron_right</child>
+      <parent>believer/base_link</parent>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <lower>-0.349066</lower>
+          <upper>0.349066</upper>
+          <effort>10</effort>
+          <velocity>20</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='believer/flap_left'>
+      <pose frame=''>-0.21 0.31 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>0.000175781</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>2.60267e-05</iyy>
+          <iyz>0</iyz>
+          <izz>0.000201381</izz>
+        </inertia>
+      </inertial>
+      <visual name='believer/flap_left_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://believer/meshes/believer_flap_left.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/White</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+    </link>
+    <joint name='believer/flap_left_joint' type='revolute'>
+      <child>believer/flap_left</child>
+      <parent>believer/base_link</parent>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <lower>-0.349066</lower>
+          <upper>0.349066</upper>
+          <effort>10</effort>
+          <velocity>20</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='believer/flap_right'>
+      <pose frame=''>-0.21 -0.31 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>0.000175781</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>2.60267e-05</iyy>
+          <iyz>0</iyz>
+          <izz>0.000201381</izz>
+        </inertia>
+      </inertial>
+      <visual name='believer/flap_right_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://believer/meshes/believer_flap_right.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/White</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+    </link>
+    <joint name='believer/flap_right_joint' type='revolute'>
+      <child>believer/flap_right</child>
+      <parent>believer/base_link</parent>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <lower>-0.349066</lower>
+          <upper>0.349066</upper>
+          <effort>10</effort>
+          <velocity>20</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='believer/gps_gt_link'>
+      <pose frame=''>0 0 0.1 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.001</mass>
+        <inertia>
+          <ixx>6.66666e-08</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>6.66666e-08</iyy>
+          <iyz>0</iyz>
+          <izz>6.66666e-08</izz>
+        </inertia>
+      </inertial>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <sensor name='believer_gps_gt' type='gps'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <visualize>0</visualize>
+        <always_on>1</always_on>
+        <gps>
+          <position_sensing>
+            <horizontal>
+              <noise type='gaussian'>
+                <mean>0</mean>
+                <stddev>0</stddev>
+                <bias_mean>0</bias_mean>
+                <bias_stddev>0</bias_stddev>
+              </noise>
+            </horizontal>
+            <vertical>
+              <noise type='gaussian'>
+                <mean>0</mean>
+                <stddev>0</stddev>
+                <bias_mean>0</bias_mean>
+                <bias_stddev>0</bias_stddev>
+              </noise>
+            </vertical>
+          </position_sensing>
+          <velocity_sensing>
+            <horizontal>
+              <noise type='gaussian'>
+                <mean>0</mean>
+                <stddev>0</stddev>
+                <bias_mean>0</bias_mean>
+                <bias_stddev>0</bias_stddev>
+              </noise>
+            </horizontal>
+            <vertical>
+              <noise type='gaussian'>
+                <mean>0</mean>
+                <stddev>0</stddev>
+                <bias_mean>0</bias_mean>
+                <bias_stddev>0</bias_stddev>
+              </noise>
+            </vertical>
+          </velocity_sensing>
+        </gps>
+        <plugin name='rotors_gazebo_gps_gt_plugin' filename='librotors_gazebo_gps_plugin.so'>
+          <robotNamespace>believer</robotNamespace>
+          <linkName>believer/gps_gt_link</linkName>
+          <gpsTopic>gps_gt</gpsTopic>
+          <groundSpeedTopic>ground_speed_gt</groundSpeedTopic>
+          <horPosStdDev>0.0</horPosStdDev>
+          <verPosStdDev>0.0</verPosStdDev>
+          <horVelStdDev>0.0</horVelStdDev>
+          <verVelStdDev>0.0</verVelStdDev>
+          <enableDelay>0</enableDelay>
+          <updateInterval>0.10</updateInterval>
+          <delay>0.12</delay>
+        </plugin>
+      </sensor>
+    </link>
+    <joint name='believer/gps_gt_joint' type='revolute'>
+      <child>believer/gps_gt_link</child>
+      <parent>believer/base_link</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='believer/gps_link'>
+      <pose frame=''>0 0 0.1 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.015</mass>
+        <inertia>
+          <ixx>1e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1e-06</iyy>
+          <iyz>0</iyz>
+          <izz>1e-06</izz>
+        </inertia>
+      </inertial>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <sensor name='believer_gps' type='gps'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <visualize>0</visualize>
+        <always_on>1</always_on>
+        <gps>
+          <position_sensing>
+            <horizontal>
+              <noise type='gaussian'>
+                <mean>0</mean>
+                <stddev>3</stddev>
+                <bias_mean>0</bias_mean>
+                <bias_stddev>0</bias_stddev>
+              </noise>
+            </horizontal>
+            <vertical>
+              <noise type='gaussian'>
+                <mean>0</mean>
+                <stddev>6</stddev>
+                <bias_mean>0</bias_mean>
+                <bias_stddev>0</bias_stddev>
+              </noise>
+            </vertical>
+          </position_sensing>
+          <velocity_sensing>
+            <horizontal>
+              <noise type='gaussian'>
+                <mean>0</mean>
+                <stddev>0.1</stddev>
+                <bias_mean>0</bias_mean>
+                <bias_stddev>0</bias_stddev>
+              </noise>
+            </horizontal>
+            <vertical>
+              <noise type='gaussian'>
+                <mean>0</mean>
+                <stddev>0.1</stddev>
+                <bias_mean>0</bias_mean>
+                <bias_stddev>0</bias_stddev>
+              </noise>
+            </vertical>
+          </velocity_sensing>
+        </gps>
+        <plugin name='rotors_gazebo_gps_plugin' filename='librotors_gazebo_gps_plugin.so'>
+          <robotNamespace>believer</robotNamespace>
+          <linkName>believer/gps_link</linkName>
+          <gpsTopic>gps</gpsTopic>
+          <groundSpeedTopic>ground_speed</groundSpeedTopic>
+          <horPosStdDev>3.0</horPosStdDev>
+          <verPosStdDev>6.0</verPosStdDev>
+          <horVelStdDev>0.1</horVelStdDev>
+          <verVelStdDev>0.1</verVelStdDev>
+          <enableDelay>1</enableDelay>
+          <updateInterval>0.10</updateInterval>
+          <delay>0.12</delay>
+        </plugin>
+      </sensor>
+    </link>
+    <joint name='believer/gps_joint' type='revolute'>
+      <child>believer/gps_link</child>
+      <parent>believer/base_link</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='believer/imu_link'>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.015</mass>
+        <inertia>
+          <ixx>1e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1e-06</iyy>
+          <iyz>0</iyz>
+          <izz>1e-06</izz>
+        </inertia>
+      </inertial>
+    </link>
+    <joint name='believer/imu_joint' type='revolute'>
+      <child>believer/imu_link</child>
+      <parent>believer/base_link</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='believer/lidar_link'>
+      <pose frame=''>-0.2 0 -0.1 0 1.506 0</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.05</mass>
+        <inertia>
+          <ixx>3.33333e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>3.33333e-06</iyy>
+          <iyz>0</iyz>
+          <izz>3.33333e-06</izz>
+        </inertia>
+      </inertial>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <sensor name='believer_lidar' type='ray'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <visualize>1</visualize>
+        <always_on>1</always_on>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>0.01</min_angle>
+              <max_angle>-0.01</max_angle>
+            </horizontal>
+            <vertical>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>0.01</min_angle>
+              <max_angle>-0.01</max_angle>
+            </vertical>
+          </scan>
+          <range>
+            <min>0.05</min>
+            <max>40</max>
+          </range>
+          <noise>
+            <type>gaussian</type>
+            <mean>0</mean>
+            <stddev>0.015</stddev>
+          </noise>
+        </ray>
+        <plugin name='rotors_gazebo_lidar_plugin' filename='librotors_gazebo_lidar_plugin.so'>
+          <robotNamespace>believer</robotNamespace>
+          <lidarTopic>lidar_lite_v3</lidarTopic>
+        </plugin>
+      </sensor>
+    </link>
+    <joint name='believer/lidar_joint' type='revolute'>
+      <child>believer/lidar_link</child>
+      <parent>believer/base_link</parent>
+      <axis>
+        <xyz>0.064751 0 -0.997901</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='believer/propeller_P0'>
+      <pose frame=''>0.116 0.256 0 3.14159 1.57079 3.14159</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>0.000250075</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000250075</iyy>
+          <iyz>0</iyz>
+          <izz>0.0005</izz>
+        </inertia>
+      </inertial>
+      <visual name='believer/propeller_P0_visual'>
+        <pose frame=''>-0.1955 0 -0.1672 3.14159 1.57079 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://believer/meshes/believer_prop.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Gray</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+    </link>
+    <joint name='believer/propeller_P0_joint' type='revolute'>
+      <child>believer/propeller_P0</child>
+      <parent>believer/base_link</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='believer/propeller_P1'>
+      <pose frame=''>0.116 -0.256 0 3.14159 1.57079 3.14159</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>0.000250075</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000250075</iyy>
+          <iyz>0</iyz>
+          <izz>0.0005</izz>
+        </inertia>
+      </inertial>
+      <visual name='believer/propeller_P1_visual'>
+        <pose frame=''>-0.1955 0 -0.1672 3.14159 1.57079 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://believer/meshes/believer_prop.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Gray</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+    </link>
+    <joint name='believer/propeller_P1_joint' type='revolute'>
+      <child>believer/propeller_P1</child>
+      <parent>believer/base_link</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='believer/vtail_left'>
+      <pose frame=''>-0.75 0.16 0.09 0.52 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>0.00014712</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.212e-05</iyy>
+          <iyz>0</iyz>
+          <izz>0.000159</izz>
+        </inertia>
+      </inertial>
+      <visual name='believer/vtail_left_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://believer/meshes/believer_vtail.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/White</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+    </link>
+    <joint name='believer/vtail_left_joint' type='revolute'>
+      <child>believer/vtail_left</child>
+      <parent>believer/base_link</parent>
+      <axis>
+        <xyz>0 -0.867819 -0.49688</xyz>
+        <limit>
+          <lower>-0.349066</lower>
+          <upper>0.349066</upper>
+          <effort>10</effort>
+          <velocity>20</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='believer/vtail_right'>
+      <pose frame=''>-0.75 -0.16 0.09 -0.52 0 0</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>0.00014712</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.212e-05</iyy>
+          <iyz>0</iyz>
+          <izz>0.000159</izz>
+        </inertia>
+      </inertial>
+      <visual name='believer/vtail_right_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://believer/meshes/believer_vtail.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/White</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+    </link>
+    <joint name='believer/vtail_right_joint' type='revolute'>
+      <child>believer/vtail_right</child>
+      <parent>believer/base_link</parent>
+      <axis>
+        <xyz>0 -0.867819 0.49688</xyz>
+        <limit>
+          <lower>-0.349066</lower>
+          <upper>0.349066</upper>
+          <effort>10</effort>
+          <velocity>20</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <plugin name='mavlink_interface' filename='libgazebo_mavlink_interface.so'>
+      <robotNamespace></robotNamespace>
+      <imuSubTopic>/imu</imuSubTopic>
+      <magSubTopic>/mag</magSubTopic>
+      <baroSubTopic>/baro</baroSubTopic>
+      <mavlink_addr>INADDR_ANY</mavlink_addr>
+      <mavlink_tcp_port>4560</mavlink_tcp_port>
+      <mavlink_udp_port>14560</mavlink_udp_port>
+      <serialEnabled>false</serialEnabled>
+      <serialDevice>/dev/ttyACM0</serialDevice>
+      <baudRate>921600</baudRate>
+      <qgc_addr>INADDR_ANY</qgc_addr>
+      <qgc_udp_port>14550</qgc_udp_port>
+      <sdk_addr>INADDR_ANY</sdk_addr>
+      <sdk_udp_port>14540</sdk_udp_port>
+      <hil_mode>false</hil_mode>
+      <hil_state_level>false</hil_state_level>
+      <enable_lockstep>true</enable_lockstep>
+      <use_tcp>true</use_tcp>
+      <motorSpeedCommandPubTopic>/gazebo/command/motor_speed</motorSpeedCommandPubTopic>
+      <control_channels>
+        <channel name="rudder">
+          <input_index>2</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>1</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>0</zero_position_armed>
+          <joint_control_type>position_kinematic</joint_control_type>
+          <joint_name>rudder_joint</joint_name>
+        </channel>
+        <channel name="rotor4">
+          <input_index>4</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>3500</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>0</zero_position_armed>
+          <joint_control_type>velocity</joint_control_type>
+          <joint_name>rotor_puller_joint</joint_name>
+        </channel>
+        <channel name="left_elevon">
+          <input_index>5</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>1</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>0</zero_position_armed>
+          <joint_control_type>position_kinematic</joint_control_type>
+          <joint_name>left_elevon_joint</joint_name>
+        </channel>
+        <channel name="right_elevon">
+          <input_index>6</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>1</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>0</zero_position_armed>
+          <joint_control_type>position_kinematic</joint_control_type>
+          <joint_name>right_elevon_joint</joint_name>
+        </channel>
+        <channel name="elevator">
+          <input_index>7</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>1</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>0</zero_position_armed>
+          <joint_control_type>position_kinematic</joint_control_type>
+          <joint_name>elevator_joint</joint_name>
+        </channel>
+        <channel name="left_flap">
+          <input_index>3</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>-1</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>0</zero_position_armed>
+          <joint_control_type>position_kinematic</joint_control_type>
+          <joint_name>left_flap_joint</joint_name>
+        </channel>
+        <channel name="right_flap">
+          <input_index>8</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>-1</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>0</zero_position_armed>
+          <joint_control_type>position_kinematic</joint_control_type>
+          <joint_name>right_flap_joint</joint_name>
+        </channel>
+      </control_channels>
+    </plugin>
+    <static>0</static>
+  </model>
+</sdf>
